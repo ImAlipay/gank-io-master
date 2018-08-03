@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "D:\\AndroidStudioProjects\\Gankio\\chapter_12\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ne\\values-ne.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 100,
+                    "endOffset": 151
+                },
+                "from": {
+                    "file": "C:\\Android\\.android\\build-cache\\29de894b096ce81b5b29177c0518b2795e160e22\\output\\res\\values-ne\\values-ne.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 100,
+                        "endOffset": 151
+                    }
+                }
+            }
+        ]
+    }
+]

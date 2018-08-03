@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\chapter_12\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_launcher_1.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\chapter_12\\src\\main\\res\\drawable-xhdpi\\ic_launcher_1.png"
+    },
+    {
+        "merged": "D:\\AndroidStudioProjects\\Gankio\\chapter_12\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\image_default.png",
+        "source": "D:\\AndroidStudioProjects\\Gankio\\chapter_12\\src\\main\\res\\drawable-xhdpi\\image_default.png"
+    }
+]
