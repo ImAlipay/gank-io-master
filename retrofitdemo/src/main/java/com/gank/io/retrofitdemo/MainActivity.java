@@ -1,32 +1,24 @@
 package com.gank.io.retrofitdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import com.gank.io.retrofitdemo.dragger2.ApiService;
+import com.gank.io.retrofitdemo.dragger2.ano.DaggerZhinanCompent;
+import com.gank.io.retrofitdemo.dragger2.ano.ZhinanCompent;
+
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
 import io.reactivex.FlowableEmitter;
 import io.reactivex.FlowableOnSubscribe;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.ObservableSource;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.BiFunction;
-import io.reactivex.functions.Consumer;
-import io.reactivex.functions.Function;
-import io.reactivex.functions.Predicate;
-import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -41,15 +33,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG = "MainActivity";
+    public static final String TAG = "MainActivity";
+    @Inject
+    ApiService mApiService;
+    @Inject
+    int code;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         testRxJava();
-    }
 
+//        DaggerUseCompoent.create().inject(this);
+//        mApiService.register();
+
+        ZhinanCompent zhinanCompent = DaggerZhinanCompent.builder().build();
+        zhinanCompent.waimai().eat();
+//        zhinanCompent.inject(this);
+//        Log.e("........", code + "");
+    }
 
     public void get(View view) {
         //步骤4:创建Retrofit对象
@@ -283,5 +286,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void flexbox(View view) {
+        Intent intent = new Intent(this, FlexBoxActivity.class);
+        startActivity(intent);
+    }
 
 }

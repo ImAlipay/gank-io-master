@@ -1,10 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<com.google.android.flexbox.FlexboxLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FlexBoxActivity">
+    android:layout_height="wrap_content"
+    app:flexDirection="row"
+    app:flexWrap="wrap"
+    app:showDivider="end"
+    app:justifyContent="flex_start">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textview1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        android:text="hello1"
+        app:layout_flexBasisPercent="33%"/>
+
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        android:text="hello2"
+        app:layout_flexBasisPercent="33%"/>
+
+    <TextView
+        android:id="@+id/textview3"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        android:text="hello3"
+        app:layout_flexBasisPercent="33%"/>
+
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        android:text="hello4"
+        app:layout_flexBasisPercent="33%"/>
+</com.google.android.flexbox.FlexboxLayout>

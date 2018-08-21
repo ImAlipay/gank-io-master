@@ -1,5 +1,7 @@
 package com.gank.io.retrofitdemo.dragger2.ano;
 
+import javax.inject.Inject;
+
 /**
  * $ClassName$:
  *
@@ -7,4 +9,14 @@ package com.gank.io.retrofitdemo.dragger2.ano;
  * @date $date$
  */
 public class Noddle {
+
+    @Inject
+    public Noddle() {
+    }
+
+    @Override
+    public String toString() {
+        return "noddle";
+    }
+
 }
