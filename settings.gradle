@@ -1,2 +1,2 @@
-include ':app', ':myapplication', ':downloadapp', ':javalib', ':retrofitdemo'
+include ':app', ':downloadapp', ':javalib', ':retrofitdemo'
 include ':chapter_12'
