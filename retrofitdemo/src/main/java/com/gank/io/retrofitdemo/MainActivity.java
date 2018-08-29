@@ -6,14 +6,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import com.gank.io.retrofitdemo.dragger2.ApiService;
-import com.gank.io.retrofitdemo.dragger2.ano.DaggerZhinanCompent;
-import com.gank.io.retrofitdemo.dragger2.ano.ZhinanCompent;
+import com.gank.io.retrofitdemo.base.DemoApplication;
+import com.gank.io.retrofitdemo.component.ApplicationComponent;
+import com.gank.io.retrofitdemo.component.DaggerApplicationComponent;
+import com.gank.io.retrofitdemo.component.DaggerMainActivityComponent;
+import com.gank.io.retrofitdemo.module.AndroidMoudle;
+import com.gank.io.retrofitdemo.module.CMoudle;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -34,24 +38,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
+
+    @Named("Test3")
     @Inject
-    ApiService mApiService;
+    Test3 mTest3;
+    @Named("Test4")
     @Inject
-    int code;
+    Test3 mTest4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         testRxJava();
-
-//        DaggerUseCompoent.create().inject(this);
-//        mApiService.register();
-
-        ZhinanCompent zhinanCompent = DaggerZhinanCompent.builder().build();
-        zhinanCompent.waimai().eat();
-//        zhinanCompent.inject(this);
-//        Log.e("........", code + "");
+        DaggerMainActivityComponent
+                .builder()
+                .applicationComponent(((DemoApplication) getApplication())
+                        .getComponent())
+                .cMoudle(new CMoudle()).build()
+                .inject(this);
+        Log.e(TAG, mTest3.toString());
     }
 
     public void get(View view) {
