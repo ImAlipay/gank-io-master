@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".testRx.RxjavaActivity"
+    tools:showIn="@layout/activity_rxjava">
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="create"
+        android:text="RxCreate"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/rxzip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxzip"
+        android:text="rxzip"
+        app:layout_constraintTop_toBottomOf="@id/create"/>
+
+    <Button
+        android:id="@+id/rxmap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxmap"
+        android:text="rxmap"
+        app:layout_constraintTop_toBottomOf="@id/rxzip"/>
+
+    <Button
+        android:id="@+id/rxflatmap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxflatmap"
+        android:text="rxflatmap"
+        app:layout_constraintTop_toBottomOf="@id/rxmap"/>
+
+    <Button
+        android:id="@+id/rxdoOnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxdoonnext"
+        android:text="rxdoonnext"
+        app:layout_constraintTop_toBottomOf="@id/rxflatmap"/>
+
+    <Button
+        android:id="@+id/rxfilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxfilter"
+        android:text="rxfilter"
+        app:layout_constraintTop_toBottomOf="@id/rxflatmap"/>
+
+    <Button
+        android:id="@+id/rxtake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxtake"
+        android:text="rxtake"
+        app:layout_constraintTop_toBottomOf="@id/rxfilter"/>
+
+    <Button
+        android:id="@+id/rxtimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxtimer"
+        android:text="rxtimer"
+        app:layout_constraintTop_toBottomOf="@id/rxtake"/>
+
+    <Button
+        android:id="@+id/rxInterval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="rxinterval"
+        android:text="rxinterval"
+        app:layout_constraintTop_toBottomOf="@id/rxtimer"/>
+
+
+</android.support.constraint.ConstraintLayout>

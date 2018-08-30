@@ -21,6 +21,11 @@
         </activity>
         <activity android:name=".FlexBoxActivity">
         </activity>
+        <activity
+            android:name=".testRx.RxjavaActivity"
+            android:label="@string/title_activity_rxjava"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
