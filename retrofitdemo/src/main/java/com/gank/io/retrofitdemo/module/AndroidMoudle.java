@@ -1,9 +1,7 @@
 package com.gank.io.retrofitdemo.module;
 
 import android.content.Context;
-import android.location.LocationManager;
 
-import com.gank.io.retrofitdemo.Test;
 import com.gank.io.retrofitdemo.base.DemoApplication;
 
 import javax.inject.Singleton;
@@ -32,17 +30,5 @@ public class AndroidMoudle {
         return mDemoApplication;
     }
 
-    @Provides
-    @Singleton
-    LocationManager provideLocationManager() {
-        return (LocationManager) mDemoApplication.getSystemService(Context.LOCATION_SERVICE);
-    }
-
-
-//    @Provides
-//    @Singleton
-//    Test provideTest() {
-//        return new Test(mDemoApplication);
-//    }
 
 }

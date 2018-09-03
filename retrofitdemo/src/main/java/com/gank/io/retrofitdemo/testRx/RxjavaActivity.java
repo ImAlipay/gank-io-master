@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.gank.io.retrofitdemo.R;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
@@ -28,6 +29,7 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subjects.PublishSubject;
 
 /**
  * RxjavaActivity:
@@ -313,5 +315,84 @@ public class RxjavaActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    /**
+     * buffer
+     * <p>
+     * buffer(count, skip)` 从定义就差不多能看出作用了，
+     * 将 observable 中的数据按 skip（步长）分成最长不超过 count 的 buffer，然后生成一个 observable
+     */
+    public void rxbuffer(View view) {
+        io.reactivex.Observable.just(1, 2, 3, 4, 5, 6, 7, 8, 9)
+                .buffer(4, 2)
+                .subscribe(new Consumer<List<Integer>>() {
+                    @Override
+                    public void accept(List<Integer> integers) throws Exception {
+                        for (Integer integer : integers) {
+                            Log.e(TAG, "buffer:" + integer);
+                        }
+                    }
+                });
+    }
+
+    public void rxreduce(View view) {
+        io.reactivex.Observable.just(1, 2, 3, 4)
+                .reduce(new BiFunction<Integer, Integer, Integer>() {
+                    @Override
+                    public Integer apply(Integer integer, Integer integer2) throws Exception {
+                        Log.e(TAG, "reduce:" + integer);
+                        Log.e(TAG, "reduce:" + integer2);
+                        return integer + integer2;
+                    }
+                }).subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.e(TAG, "accept:" + integer);
+            }
+        });
+    }
+
+    public void rxwindow(View view) {
+        io.reactivex.Observable.interval(1, TimeUnit.SECONDS)
+                .take(15)
+                .window(3, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<io.reactivex.Observable<Long>>() {
+                    @Override
+                    public void accept(io.reactivex.Observable<Long> longObservable) throws Exception {
+                        longObservable.subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Consumer<Long>() {
+                                    @Override
+                                    public void accept(Long aLong) throws Exception {
+                                        Log.e(TAG, "window:" + aLong);
+                                    }
+                                });
+                    }
+                });
+    }
+
+    public void rxpublishSubject(View view) {
+        PublishSubject<Integer> subject = PublishSubject.create();
+        subject.subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.e(TAG, "first:" + integer);
+            }
+        });
+        subject.onNext(1);
+        subject.onNext(2);
+        subject.onNext(3);
+        subject.subscribe(new Consumer<Integer>() {
+            @Override
+            public void accept(Integer integer) throws Exception {
+                Log.e(TAG, "second:" + integer);
+            }
+        });
+        subject.onNext(4);
+        subject.onNext(5);
+    }
+
 
 }

@@ -12,19 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".FlexBoxActivity">
+        <activity android:name=".ui.MainActivity"/>
+        <activity android:name=".testRx.FlexBoxActivity">
         </activity>
         <activity
             android:name=".testRx.RxjavaActivity"
             android:label="@string/title_activity_rxjava"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity android:name=".ui.LaunchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 

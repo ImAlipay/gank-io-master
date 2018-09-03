@@ -1,8 +1,8 @@
 package com.gank.io.retrofitdemo.component;
 
-import android.location.LocationManager;
+import android.content.Context;
 
-import com.gank.io.retrofitdemo.MainActivity;
+import com.gank.io.retrofitdemo.base.BaseAvtivity;
 import com.gank.io.retrofitdemo.base.DemoApplication;
 import com.gank.io.retrofitdemo.module.AndroidMoudle;
 
@@ -20,8 +20,7 @@ import dagger.Component;
 @Component(modules = AndroidMoudle.class)
 public interface ApplicationComponent {
 
-    void inject(DemoApplication application);
+    void inject(BaseAvtivity application);
 
-//    void inject(MainActivity mainActivity);
-    LocationManager getLocationManager();
+    Context context();
 }

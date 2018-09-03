@@ -9,77 +9,119 @@
     tools:context=".testRx.RxjavaActivity"
     tools:showIn="@layout/activity_rxjava">
 
-    <Button
-        android:id="@+id/create"
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="create"
-        android:text="RxCreate"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/rxzip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxzip"
-        android:text="rxzip"
-        app:layout_constraintTop_toBottomOf="@id/create"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/rxmap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxmap"
-        android:text="rxmap"
-        app:layout_constraintTop_toBottomOf="@id/rxzip"/>
+            <Button
+                android:id="@+id/create"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="create"
+                android:text="RxCreate"
+                app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/rxflatmap"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxflatmap"
-        android:text="rxflatmap"
-        app:layout_constraintTop_toBottomOf="@id/rxmap"/>
+            <Button
+                android:id="@+id/rxzip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxzip"
+                android:text="rxzip"
+                app:layout_constraintTop_toBottomOf="@id/create"/>
 
-    <Button
-        android:id="@+id/rxdoOnNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxdoonnext"
-        android:text="rxdoonnext"
-        app:layout_constraintTop_toBottomOf="@id/rxflatmap"/>
+            <Button
+                android:id="@+id/rxmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxmap"
+                android:text="rxmap"
+                app:layout_constraintTop_toBottomOf="@id/rxzip"/>
 
-    <Button
-        android:id="@+id/rxfilter"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxfilter"
-        android:text="rxfilter"
-        app:layout_constraintTop_toBottomOf="@id/rxflatmap"/>
+            <Button
+                android:id="@+id/rxflatmap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxflatmap"
+                android:text="rxflatmap"
+                app:layout_constraintTop_toBottomOf="@id/rxmap"/>
 
-    <Button
-        android:id="@+id/rxtake"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxtake"
-        android:text="rxtake"
-        app:layout_constraintTop_toBottomOf="@id/rxfilter"/>
+            <Button
+                android:id="@+id/rxdoOnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxdoonnext"
+                android:text="rxdoonnext"
+                app:layout_constraintTop_toBottomOf="@id/rxflatmap"/>
 
-    <Button
-        android:id="@+id/rxtimer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxtimer"
-        android:text="rxtimer"
-        app:layout_constraintTop_toBottomOf="@id/rxtake"/>
+            <Button
+                android:id="@+id/rxfilter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxfilter"
+                android:text="rxfilter"
+                app:layout_constraintTop_toBottomOf="@id/rxflatmap"/>
 
-    <Button
-        android:id="@+id/rxInterval"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="rxinterval"
-        android:text="rxinterval"
-        app:layout_constraintTop_toBottomOf="@id/rxtimer"/>
+            <Button
+                android:id="@+id/rxtake"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxtake"
+                android:text="rxtake"
+                app:layout_constraintTop_toBottomOf="@id/rxfilter"/>
 
+            <Button
+                android:id="@+id/rxtimer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxtimer"
+                android:text="rxtimer"
+                app:layout_constraintTop_toBottomOf="@id/rxtake"/>
 
+            <Button
+                android:id="@+id/rxInterval"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxinterval"
+                android:text="rxinterval"
+                app:layout_constraintTop_toBottomOf="@id/rxtimer"/>
+
+            <Button
+                android:id="@+id/rxBuffer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxbuffer"
+                android:text="rxbuffer"
+                app:layout_constraintTop_toBottomOf="@id/rxInterval"/>
+
+            <Button
+                android:id="@+id/rxReduce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxreduce"
+                android:text="rxreduce"
+                app:layout_constraintTop_toBottomOf="@id/rxBuffer"/>
+
+            <Button
+                android:id="@+id/rxWindow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxwindow"
+                android:text="rxwindow"
+                app:layout_constraintTop_toBottomOf="@id/rxReduce"/>
+
+            <Button
+                android:id="@+id/rxpublishSubject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="rxpublishSubject"
+                android:text="rxpublishSubject"
+                app:layout_constraintTop_toBottomOf="@id/rxWindow"/>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -5,45 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.gank.io.retrofitdemo.MainActivity">
+    tools:context="com.gank.io.retrofitdemo.ui.MainActivity">
 
-    <Button
-        android:id="@+id/button_get"
-        android:onClick="get"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get请求"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
-    <Button
-        android:id="@+id/button_post"
-        android:onClick="post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Post请求"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_get"/>
 
-    <Button
-        android:id="@+id/button_flexbox"
-        android:onClick="flexbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FlexboxLayout"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_post"/>
-
-    <Button
-        android:id="@+id/rxjava"
-        android:onClick="rxjava"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RxJava"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_flexbox"/>
 </android.support.constraint.ConstraintLayout>

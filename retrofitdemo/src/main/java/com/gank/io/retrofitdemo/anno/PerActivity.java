@@ -1,4 +1,4 @@
-package com.gank.io.retrofitdemo;
+package com.gank.io.retrofitdemo.anno;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
