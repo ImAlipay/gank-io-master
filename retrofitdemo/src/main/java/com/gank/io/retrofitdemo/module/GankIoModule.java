@@ -1,5 +1,7 @@
 package com.gank.io.retrofitdemo.module;
 
+import com.gank.io.retrofitdemo.Test;
+import com.gank.io.retrofitdemo.TestImp;
 import com.gank.io.retrofitdemo.net.GankIoRepository;
 import com.gank.io.retrofitdemo.net.GankIoRepositoryImp;
 import com.gank.io.retrofitdemo.net.GankIoService;
@@ -23,8 +25,12 @@ public class GankIoModule {
     }
 
     @Provides
-    GankIoService provideGankIoService(GankIoServiceImp repository){
+    GankIoService provideGankIoService(GankIoServiceImp repository) {
         return repository;
     }
 
+    @Provides
+    Test provideTest(TestImp testImp) {
+        return testImp;
+    }
 }

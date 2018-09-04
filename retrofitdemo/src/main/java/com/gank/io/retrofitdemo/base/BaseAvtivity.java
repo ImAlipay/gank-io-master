@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import com.gank.io.retrofitdemo.component.ApplicationComponent;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
+import butterknife.ButterKnife;
+
 /**
  * $ClassName$:
  *
@@ -19,6 +21,7 @@ public abstract class BaseAvtivity extends RxAppCompatActivity {
         super.onCreate(savedInstanceState);
         ((DemoApplication) getApplication()).getComponent().inject(this);
         setContentView(getLayoutId());
+        ButterKnife.bind(this);
         initContentView(savedInstanceState);
     }
 
