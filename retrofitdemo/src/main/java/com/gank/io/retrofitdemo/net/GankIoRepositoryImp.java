@@ -29,4 +29,5 @@ public class GankIoRepositoryImp implements GankIoRepository {
     public Observable<BaseGankIoResp<List<GankFLEntities>>> getFlGrils(int num) {
         return RetrofitFactory.getInstance().create(GankIoApi.class).getGirls(num);
     }
+
 }

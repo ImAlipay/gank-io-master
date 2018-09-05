@@ -2,4 +2,6 @@
     <string name="app_name">RetrofitDemo</string>
     <string name="title_activity_rxjava">RxjavaActivity</string>
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="drawer_close">drawer close</string>
 </resources>

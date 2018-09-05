@@ -19,7 +19,8 @@ import io.reactivex.schedulers.Schedulers;
 public abstract class BaseService {
 
     public void execute(Observer schedulers, Observable observable, BaseAvtivity act) {
-         observable.subscribeOn(Schedulers.io())
+        observable.subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .compose(RxLifecycle.bindUntilEvent(act.lifecycle(), ActivityEvent.DESTROY))
                 .subscribe(schedulers);

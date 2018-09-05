@@ -3,6 +3,7 @@ package com.gank.io.retrofitdemo.component;
 import com.gank.io.retrofitdemo.anno.PerActivity;
 import com.gank.io.retrofitdemo.module.ActivityModule;
 import com.gank.io.retrofitdemo.module.GankIoModule;
+import com.gank.io.retrofitdemo.module.TestModule;
 import com.gank.io.retrofitdemo.ui.LaunchActivity;
 
 import dagger.Component;
@@ -13,7 +14,7 @@ import dagger.Component;
  * @date ${date}
  */
 @PerActivity
-@Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class, GankIoModule.class})
+@Component(dependencies = ApplicationComponent.class, modules = {ActivityModule.class, GankIoModule.class, TestModule.class})
 public interface GankIoComponent {
     void inject(LaunchActivity activity);
 }

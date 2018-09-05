@@ -29,8 +29,4 @@ public class GankIoModule {
         return repository;
     }
 
-    @Provides
-    Test provideTest(TestImp testImp) {
-        return testImp;
-    }
 }

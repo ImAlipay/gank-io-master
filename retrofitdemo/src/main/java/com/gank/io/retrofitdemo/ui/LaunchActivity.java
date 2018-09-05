@@ -14,6 +14,7 @@ import com.gank.io.retrofitdemo.module.ActivityModule;
 import com.gank.io.retrofitdemo.module.GankIoModule;
 import com.gank.io.retrofitdemo.mvp.presenter.LaunchPresenter;
 import com.gank.io.retrofitdemo.mvp.view.LaunchView;
+import com.gank.io.retrofitdemo.stickylistheaders.activity.TestActivity;
 import com.gank.io.retrofitdemo.utils.Constant;
 
 import java.util.concurrent.TimeUnit;
@@ -64,7 +65,7 @@ public class LaunchActivity extends BaseMVPActivity<LaunchPresenter> implements 
             @Override
             public void accept(Long aLong) throws Exception {
                 Log.e(Constant.TAG, aLong + "");
-                Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+                Intent intent = new Intent(LaunchActivity.this, TestActivity.class);
                 startActivity(intent);
                 finish();
             }
