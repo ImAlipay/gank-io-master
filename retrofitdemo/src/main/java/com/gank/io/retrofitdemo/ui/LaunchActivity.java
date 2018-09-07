@@ -65,7 +65,7 @@ public class LaunchActivity extends BaseMVPActivity<LaunchPresenter> implements 
             @Override
             public void accept(Long aLong) throws Exception {
                 Log.e(Constant.TAG, aLong + "");
-                Intent intent = new Intent(LaunchActivity.this, TestActivity.class);
+                Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

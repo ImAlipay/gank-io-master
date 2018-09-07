@@ -501,7 +501,6 @@ public class StickyListHeadersListView extends FrameLayout {
         } else {
             handled = mList.dispatchTouchEvent(ev);
         }
-
         return handled;
     }
 
@@ -1149,4 +1148,7 @@ public class StickyListHeadersListView extends FrameLayout {
     public boolean isStackFromBottom() {
         return mList.isStackFromBottom();
     }
+
+
+
 }
