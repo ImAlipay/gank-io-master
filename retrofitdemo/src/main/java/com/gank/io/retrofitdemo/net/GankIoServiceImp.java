@@ -27,7 +27,7 @@ public class GankIoServiceImp extends GankIoService {
 
     @Override
     public Observable<List<GankFLEntities>> getList(int rows, int pageNum) {
-        return mGankIoRepository.getFlist(rows, pageNum).flatMap(new BaseGankIoFunc());
+        return mGankIoRepository.getFlist(rows, pageNum).flatMap(new BaseGankIoFunc<List<GankFLEntities>>());
     }
 
     @Override
