@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * ${DESC}
+ * Adapter包装类
  *
  * @author 91660
  * @date 2018/9/7
@@ -110,8 +110,7 @@ public class HeaderAndFooterWrapper extends RecyclerView.Adapter<RecyclerView.Vi
         if (isFooterViewPos(position)) {
             return;
         }
-
-
+        mInnerAdapter.onBindViewHolder(holder, position - getHeadersCount());
     }
 
     @Override

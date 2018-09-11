@@ -1,4 +1,4 @@
-package com.gank.io.retrofitdemo.ui;
+package com.gank.io.retrofitdemo.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,7 +14,6 @@ import com.gank.io.retrofitdemo.module.ActivityModule;
 import com.gank.io.retrofitdemo.module.GankIoModule;
 import com.gank.io.retrofitdemo.mvp.presenter.LaunchPresenter;
 import com.gank.io.retrofitdemo.mvp.view.LaunchView;
-import com.gank.io.retrofitdemo.stickylistheaders.activity.TestActivity;
 import com.gank.io.retrofitdemo.utils.Constant;
 
 import java.util.concurrent.TimeUnit;

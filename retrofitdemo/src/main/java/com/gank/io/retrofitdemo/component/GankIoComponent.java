@@ -4,8 +4,8 @@ import com.gank.io.retrofitdemo.anno.PerActivity;
 import com.gank.io.retrofitdemo.module.ActivityModule;
 import com.gank.io.retrofitdemo.module.GankIoModule;
 import com.gank.io.retrofitdemo.module.TestModule;
-import com.gank.io.retrofitdemo.ui.LaunchActivity;
-import com.gank.io.retrofitdemo.ui.MainActivity;
+import com.gank.io.retrofitdemo.ui.activity.LaunchActivity;
+import com.gank.io.retrofitdemo.ui.activity.MainActivity;
 
 import dagger.Component;
 
