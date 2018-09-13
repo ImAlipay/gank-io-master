@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.gank.io.retrofitdemo.R;
+import com.gank.io.retrofitdemo.takephoto.SelectImageActivity;
+import com.gank.io.retrofitdemo.takephoto.SelectOptions;
+import com.gank.io.retrofitdemo.takephoto.TweetPicturesPreviewer;
+import com.gank.io.retrofitdemo.takephoto.TweetSelectImageAdapter;
 
 /**
  * ${DESC}
@@ -20,6 +24,7 @@ import com.gank.io.retrofitdemo.R;
 public class PagerFramgent extends Fragment {
 
     private int a;
+    private TweetPicturesPreviewer mLayImages;
 
     /**
      * 创建一个静态实例化Fragment的方法
@@ -55,9 +60,16 @@ public class PagerFramgent extends Fragment {
         //加载一个布局，布局中只有一个textview
         View view = inflater.inflate(R.layout.fragment, container, false);
         TextView textView = (TextView) view.findViewById(R.id.textView);
+        mLayImages = view.findViewById(R.id.recycler_images);
         //设置文本，将传进来的值设置进去
         textView.setText(a + "");
-        Log.e(tag, "onCreateView");
+
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mLayImages.onLoadMoreClick();
+            }
+        });
         return view;
     }
 

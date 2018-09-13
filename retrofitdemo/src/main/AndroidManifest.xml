@@ -36,6 +36,8 @@
         </activity>
         <activity android:name="com.gank.io.retrofitdemo.stickylistheaders.activity.ExpandableListTestActivity"/>
         <activity android:name="com.gank.io.retrofitdemo.stickylistheaders.activity.TestActivity"/>
+        <activity android:name=".takephoto.SelectImageActivity"/>
+
     </application>
 
 </manifest>

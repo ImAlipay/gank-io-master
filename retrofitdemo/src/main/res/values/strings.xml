@@ -4,4 +4,10 @@
     <string name="appbar_scrolling_view_behavior">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
     <string name="drawer_open">drawer open</string>
     <string name="drawer_close">drawer close</string>
+    <string name="state_network_error">network error</string>
+    <string name="state_load">state load</string>
+    <string name="state_loading">state loading</string>
+    <string name="state_not_more">state not more</string>
+    <string name="state_refreshing">state refreshing</string>
+    <string name="state_load_error">state load error</string>
 </resources>
