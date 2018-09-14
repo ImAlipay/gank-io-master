@@ -68,7 +68,7 @@ public class TweetPicturesPreviewer extends RecyclerView implements TweetSelectI
         SelectImageActivity.show(getContext(), new SelectOptions.Builder()
                 .setHasCam(true)
                 .setSelectCount(9)
-                .setSelectedImages(mImageAdapter.getPaths())
+                .setSelectedImages(getPaths())
                 .setCallback(new SelectOptions.Callback() {
                     @Override
                     public void doSelected(String[] images) {

@@ -39,6 +39,7 @@ public class SelectImageActivity extends BaseAvtivity implements SelectImageCont
 
     @Override
     public void onBack() {
+        //后退键
         onSupportNavigateUp();
     }
 

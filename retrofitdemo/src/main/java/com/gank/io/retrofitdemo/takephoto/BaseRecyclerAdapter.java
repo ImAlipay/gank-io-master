@@ -40,7 +40,9 @@ public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter {
 
     private final int BEHAVIOR_MODE;
     protected int mState;
-
+    /**
+     * 没有头布局和尾布局
+     */
     public static final int NEITHER = 0;
     public static final int ONLY_HEADER = 1;
     public static final int ONLY_FOOTER = 2;

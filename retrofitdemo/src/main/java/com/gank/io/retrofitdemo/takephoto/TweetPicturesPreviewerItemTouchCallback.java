@@ -16,7 +16,6 @@ import android.support.v7.widget.helper.ItemTouchHelper;
  * ItemTouchHelperAdapter} callbacks and the <code>RecyclerView.ViewHolder</code> to implement
  * {@link ItemTouchHelperViewHolder}.
  */
-
 public class TweetPicturesPreviewerItemTouchCallback extends ItemTouchHelper.Callback {
 
     public static final float ALPHA_FULL = 1.0f;

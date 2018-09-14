@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.gank.io.retrofitdemo.view.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f1f1f1"
@@ -11,4 +11,5 @@
         android:layout_height="@dimen/size_36"
         android:layout_gravity="center"
         android:src="@mipmap/ic_tweet_select_picture_camera" />
-</FrameLayout>
+
+</com.gank.io.retrofitdemo.view.SquareLayout>

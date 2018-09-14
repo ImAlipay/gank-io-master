@@ -16,11 +16,14 @@ import com.gank.io.retrofitdemo.glide.GlideApp;
  * 图片列表界面适配器
  */
 public class ImageAdapter extends BaseRecyclerAdapter<Image> {
+
     private ImageLoaderListener loader;
     private boolean isSingleSelect;
+    private Context mContext;
 
     public ImageAdapter(Context context, ImageLoaderListener loader) {
         super(context, NEITHER);
+        this.mContext = context;
         this.loader = loader;
     }
 
@@ -41,7 +44,7 @@ public class ImageAdapter extends BaseRecyclerAdapter<Image> {
     public void onViewRecycled(RecyclerView.ViewHolder holder) {
         if (holder instanceof ImageViewHolder) {
             ImageViewHolder h = (ImageViewHolder) holder;
-//            GlideApp.clear(h.mImageView);
+            GlideApp.with(mContext).clear(h.mImageView);
         }
     }
 

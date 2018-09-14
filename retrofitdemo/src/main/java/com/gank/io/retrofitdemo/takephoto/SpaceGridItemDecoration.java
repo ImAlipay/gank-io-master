@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
+ * 分割线
  * Created by huanghaibin
  * on 16-5-9.
  */

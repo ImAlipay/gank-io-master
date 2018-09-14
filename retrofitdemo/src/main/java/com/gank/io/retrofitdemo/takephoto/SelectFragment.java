@@ -187,6 +187,11 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
         }
     }
 
+    /**
+     * 下边的控件
+     *
+     * @param size
+     */
     private void handleSelectSizeChange(int size) {
         if (size > 0) {
             mPreviewView.setEnabled(true);
@@ -199,6 +204,11 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
         }
     }
 
+    /**
+     * 图片的点击事件
+     *
+     * @param position
+     */
     private void handleSelectChange(int position) {
         Image image = mImageAdapter.getItem(position);
         if (image == null) {
