@@ -10,4 +10,5 @@
     <string name="state_not_more">state not more</string>
     <string name="state_refreshing">state refreshing</string>
     <string name="state_load_error">state load error</string>
+    <string name="image_select_opt_done">Done</string>
 </resources>

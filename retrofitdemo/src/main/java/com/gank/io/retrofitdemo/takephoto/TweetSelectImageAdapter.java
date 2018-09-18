@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class TweetSelectImageAdapter extends RecyclerView.Adapter<TweetSelectImageAdapter.TweetSelectImageHolder> implements TweetPicturesPreviewerItemTouchCallback.ItemTouchHelperAdapter {
 
-    private final int MAX_SIZE = 9;
+    private final int MAX_SIZE = 4;
     private final int TYPE_NONE = 0;
     private final int TYPE_ADD = 1;
     private final List<Model> mModels = new ArrayList<>();
@@ -116,7 +116,8 @@ public class TweetSelectImageAdapter extends RecyclerView.Adapter<TweetSelectIma
         if (size == MAX_SIZE) {
             return size;
         } else if (size == 0) {
-            return 0;
+            //默认显示最后一个
+            return 1;
         } else {
             return size + 1;
         }

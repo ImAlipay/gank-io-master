@@ -25,11 +25,13 @@ public class Util {
     }
 
     public static String getCameraPath() {
-        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/DCIM/Camera/";// filePath:/sdcard/
+        // filePath:/sdcard/
+        return Environment.getExternalStorageDirectory().getAbsolutePath() + "/DCIM/Camera/";
     }
 
     public static String getSaveImageFullName() {
-        return "IMG_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".jpg";// 照片命名
+        // 照片命名
+        return "IMG_" + new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date()) + ".jpg";
     }
 
     public static ArrayList<String> toArrayList(List<Image> images) {
@@ -41,11 +43,13 @@ public class Util {
     }
 
     public static String[] toArray(List<Image> images) {
-        if (images == null)
+        if (images == null) {
             return null;
+        }
         int len = images.size();
-        if (len == 0)
+        if (len == 0) {
             return null;
+        }
 
         String[] strings = new String[len];
         int i = 0;

@@ -45,7 +45,7 @@ public class TweetPicturesPreviewer extends RecyclerView implements TweetSelectI
     private void init() {
         mImageAdapter = new TweetSelectImageAdapter(this);
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 4);
         this.setLayoutManager(layoutManager);
         this.setAdapter(mImageAdapter);
         this.setOverScrollMode(View.OVER_SCROLL_NEVER);
@@ -67,7 +67,7 @@ public class TweetPicturesPreviewer extends RecyclerView implements TweetSelectI
     public void onLoadMoreClick() {
         SelectImageActivity.show(getContext(), new SelectOptions.Builder()
                 .setHasCam(true)
-                .setSelectCount(9)
+                .setSelectCount(4)
                 .setSelectedImages(getPaths())
                 .setCallback(new SelectOptions.Callback() {
                     @Override

@@ -62,13 +62,29 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
 //    @BindView(R.id.error_layout)
 //    EmptyLayout mErrorLayout;
 
+    /**
+     * 选择图片文件夹
+     */
     private ImageFolderPopupWindow mFolderPopupWindow;
+    /**
+     * 上方popup window recyclerview 适配器
+     */
     private ImageFolderAdapter mImageFolderAdapter;
+    /**
+     * 图片展示适配器
+     */
     private ImageAdapter mImageAdapter;
-
+    /**
+     * 选中图片集合
+     */
     private List<Image> mSelectedImage;
-
+    /**
+     * 拍照图片的名称
+     */
     private String mCamImageName;
+    /**
+     * 本地数据库
+     */
     private LoaderListener mCursorLoader = new LoaderListener();
 
     private SelectImageContract.Operator mOperator;
@@ -101,7 +117,7 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                 break;
             case R.id.btn_preview:
                 if (mSelectedImage.size() > 0) {
-//                    ImageGalleryActivity.show(getActivity(), Util.toArray(mSelectedImage), 0, false);
+                    ImageGalleryActivity.show(getActivity(), Util.toArray(mSelectedImage), 0, false);
                 }
                 break;
             case R.id.btn_title_select:
@@ -166,6 +182,7 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                 }
             }
         }
+        //todo:从本地加载图片
         getLoaderManager().initLoader(0, null, mCursorLoader);
     }
 
@@ -177,7 +194,7 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                 handleSelectChange(position);
             } else {
                 if (mSelectedImage.size() < mOption.getSelectCount()) {
-//                    mOperator.requestCamera();
+                    toOpenCamera();
                 } else {
                     Toast.makeText(getActivity(), "最多只能选择 " + mOption.getSelectCount() + " 张图片", Toast.LENGTH_SHORT).show();
                 }
@@ -196,11 +213,11 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
         if (size > 0) {
             mPreviewView.setEnabled(true);
             mDoneView.setEnabled(true);
-//            mDoneView.setText(String.format("%s(%s)", getText(R.string.image_select_opt_done), size));
+            mDoneView.setText(String.format("%s(%s)", getText(R.string.image_select_opt_done), size));
         } else {
             mPreviewView.setEnabled(false);
             mDoneView.setEnabled(false);
-//            mDoneView.setText(getText(R.string.image_select_opt_done));
+            mDoneView.setText(getText(R.string.image_select_opt_done));
         }
     }
 
@@ -223,7 +240,7 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                 mImageAdapter.updateItem(position);
             } else {
                 if (mSelectedImage.size() == selectCount) {
-                    Toast.makeText(getActivity(), "最多只能选择 " + selectCount + " 张照片", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "You can only choose " + selectCount + " pictures at most", Toast.LENGTH_SHORT).show();
                 } else {
                     image.setSelect(true);
                     mSelectedImage.add(image);
@@ -383,6 +400,9 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                 .into(iv);
     }
 
+    /**
+     * callback实现
+     */
     private class LoaderListener implements LoaderManager.LoaderCallbacks<Cursor> {
         private final String[] IMAGE_PROJECTION = {
                 MediaStore.Images.Media.DATA,
@@ -411,7 +431,7 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                 final List<ImageFolder> imageFolders = new ArrayList<>();
 
                 final ImageFolder defaultFolder = new ImageFolder();
-                defaultFolder.setName("全部照片");
+                defaultFolder.setName("All Pictures");
                 defaultFolder.setPath("");
                 imageFolders.add(defaultFolder);
 
@@ -466,8 +486,6 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                             ImageFolder f = imageFolders.get(imageFolders.indexOf(folder));
                             f.getImages().add(image);
                         }
-
-
                     } while (data.moveToNext());
                 }
                 addImagesToAdapter(images);
@@ -507,6 +525,11 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
         }
     }
 
+    /**
+     * 向Adapter添加图片
+     *
+     * @param images
+     */
     private void addImagesToAdapter(ArrayList<Image> images) {
         mImageAdapter.clear();
         if (mOption.isHasCam()) {

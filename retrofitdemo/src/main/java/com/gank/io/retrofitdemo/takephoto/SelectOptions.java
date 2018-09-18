@@ -13,6 +13,9 @@ public final class SelectOptions {
     private boolean isCrop;
     private int mCropWidth, mCropHeight;
     private Callback mCallback;
+    /**
+     * 是否包含相机
+     */
     private boolean hasCam;
     private int mSelectCount;
     private List<String> mSelectedImages;

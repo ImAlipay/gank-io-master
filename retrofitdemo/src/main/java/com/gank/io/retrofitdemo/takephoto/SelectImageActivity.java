@@ -25,6 +25,7 @@ import java.util.List;
  */
 @SuppressWarnings("All")
 public class SelectImageActivity extends BaseAvtivity implements SelectImageContract.Operator {
+
     private static final int RC_CAMERA_PERM = 0x03;
     private static final int RC_EXTERNAL_STORAGE = 0x04;
     public static final String KEY_CONFIG = "config";
@@ -90,9 +91,6 @@ public class SelectImageActivity extends BaseAvtivity implements SelectImageCont
     @Override
     protected void initContentView(Bundle savedInstanceState) {
         handleView();
-//        if (mView != null) {
-//            mView.onOpenCameraSuccess();
-//        }
     }
 
     @Override
