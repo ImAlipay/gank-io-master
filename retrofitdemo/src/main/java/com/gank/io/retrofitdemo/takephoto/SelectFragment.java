@@ -117,7 +117,7 @@ public class SelectFragment extends BaseFragment implements SelectImageContract.
                 break;
             case R.id.btn_preview:
                 if (mSelectedImage.size() > 0) {
-                    ImageGalleryActivity.show(getActivity(), Util.toArray(mSelectedImage), 0, false);
+//                    ImageGalleryActivity.show(getActivity(), Util.toArray(mSelectedImage), 0, false);
                 }
                 break;
             case R.id.btn_title_select:
