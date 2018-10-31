@@ -1,2 +1,2 @@
-include ':retrofitdemo'
+include ':retrofitdemo', ':customerControl'
 
