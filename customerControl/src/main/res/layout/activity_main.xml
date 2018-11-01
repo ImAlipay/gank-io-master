@@ -7,8 +7,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.chinasoft.customercontrol.SpiderView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <!--<com.chinasoft.customercontrol.SpiderView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+
+    <!--<com.chinasoft.customercontrol.SaveRestoreView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@color/colorAccent"/>
+
 
 </android.support.constraint.ConstraintLayout>
