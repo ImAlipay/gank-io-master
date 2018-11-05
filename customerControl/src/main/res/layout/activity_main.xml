@@ -10,7 +10,6 @@
     <!--<com.chinasoft.customercontrol.SpiderView-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent"/>-->
-
     <!--<com.chinasoft.customercontrol.SaveRestoreView-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent"/>-->
@@ -21,5 +20,18 @@
         android:layout_height="100dp"
         android:background="@color/colorAccent"/>
 
+    <Button
+        android:id="@+id/btn_stop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="stop"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="start"
+        app:layout_constraintBottom_toTopOf="@id/btn_stop"/>
 
 </android.support.constraint.ConstraintLayout>
