@@ -2,6 +2,7 @@ package com.chinasoft.customercontrol;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView mTv1;
     private TextView mTv2;
+    private MyTextView mTv3;
     private ValueAnimator mValueAnimator;
     private boolean click;
     private Button mItem1;
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         mTv1 = findViewById(R.id.tv1);
         mTv2 = findViewById(R.id.tv2);
+        mTv3 = findViewById(R.id.tv3);
         Button menu = findViewById(R.id.menu);
         mItem1 = findViewById(R.id.item1);
         mItem2 = findViewById(R.id.item2);
@@ -64,7 +67,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                mValueAnimator = doAnima();
 //                startObject().start();
-                playTogether();
+//                playTogether();
+                setPropertyValuesHolder(mTv1);
+                setPropertyValuesHolder(mTv2);
+                setObjectProperty();
             }
         });
 
@@ -74,6 +80,21 @@ public class MainActivity extends AppCompatActivity {
 //                mValueAnimator.cancel();
             }
         });
+    }
+
+    private void setPropertyValuesHolder(View view) {
+        PropertyValuesHolder rotation = PropertyValuesHolder.ofFloat("Rotation", 60f, -60f, 40f, -40f, 20f, -20f, 10f, -10f, 0f);
+        PropertyValuesHolder alpha = PropertyValuesHolder.ofFloat("alpha", 0.1f, 1f, 0.1f, 1f);
+        ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(view, rotation, alpha);
+        objectAnimator.setDuration(3000);
+        objectAnimator.start();
+    }
+
+    private void setObjectProperty() {
+        PropertyValuesHolder holder = PropertyValuesHolder.ofObject("charText", new CharEvaluator(), new Character('A'), new Character('Z'));
+        ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(mTv3, holder);
+        objectAnimator.setDuration(10000);
+        objectAnimator.start();
     }
 
     /**
@@ -132,7 +153,6 @@ public class MainActivity extends AppCompatActivity {
         animatorSet.play(tv1BgaAnimator).with(tv1TransAnimator).after(tv2TranslateY);
         animatorSet.setDuration(2000);
         animatorSet.start();
-
     }
 
     private ValueAnimator doAnima() {
