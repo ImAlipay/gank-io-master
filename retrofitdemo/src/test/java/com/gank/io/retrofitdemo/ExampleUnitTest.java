@@ -1,7 +1,5 @@
 package com.gank.io.retrofitdemo;
 
-import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 /**

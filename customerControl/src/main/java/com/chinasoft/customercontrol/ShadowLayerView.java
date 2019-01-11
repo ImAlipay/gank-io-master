@@ -35,7 +35,12 @@ public class ShadowLayerView extends View {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.BLACK);
         mPaint.setTextSize(25);
-        mPaint.setShadowLayer(1, 10, 10, Color.GRAY);
+//        mPaint.setShadowLayer(1, 10, 10, Color.GRAY);
+    }
+
+    @Override
+    protected void dispatchDraw(Canvas canvas) {
+        super.dispatchDraw(canvas);
     }
 
     @Override
@@ -45,4 +50,5 @@ public class ShadowLayerView extends View {
         canvas.drawText("Hello World!", 100, 100, mPaint);
         canvas.drawCircle(300, 100, 50, mPaint);
     }
+
 }
