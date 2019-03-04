@@ -11,6 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.chinasoft.customercontrol.retrofit.GithubService;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTv1;
@@ -29,55 +37,77 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTv1 = findViewById(R.id.tv1);
-        mTv2 = findViewById(R.id.tv2);
-        mTv3 = findViewById(R.id.tv3);
-        Button menu = findViewById(R.id.menu);
-        mItem1 = findViewById(R.id.item1);
-        mItem2 = findViewById(R.id.item2);
-        mItem3 = findViewById(R.id.item3);
-        mItem4 = findViewById(R.id.item4);
-        mItem5 = findViewById(R.id.item5);
+//        mTv1 = findViewById(R.id.tv1);
+//        mTv2 = findViewById(R.id.tv2);
+//        mTv3 = findViewById(R.id.tv3);
+//        Button menu = findViewById(R.id.menu);
+//        mItem1 = findViewById(R.id.item1);
+//        mItem2 = findViewById(R.id.item2);
+//        mItem3 = findViewById(R.id.item3);
+//        mItem4 = findViewById(R.id.item4);
+//        mItem5 = findViewById(R.id.item5);
 
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (click) {
-                    click = false;
-                    closedAnima(mItem1, 0, 5, 800);
-                    closedAnima(mItem2, 1, 5, 800);
-                    closedAnima(mItem3, 2, 5, 800);
-                    closedAnima(mItem4, 3, 5, 800);
-                    closedAnima(mItem5, 4, 5, 800);
-                } else {
-                    click = true;
-                    openAnima(mItem1, 0, 5, 800);
-                    openAnima(mItem2, 1, 5, 800);
-                    openAnima(mItem3, 2, 5, 800);
-                    openAnima(mItem4, 3, 5, 800);
-                    openAnima(mItem5, 4, 5, 800);
-                }
-            }
-        });
+//        menu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (click) {
+//                    click = false;
+//                    closedAnima(mItem1, 0, 5, 800);
+//                    closedAnima(mItem2, 1, 5, 800);
+//                    closedAnima(mItem3, 2, 5, 800);
+//                    closedAnima(mItem4, 3, 5, 800);
+//                    closedAnima(mItem5, 4, 5, 800);
+//                } else {
+//                    click = true;
+//                    openAnima(mItem1, 0, 5, 800);
+//                    openAnima(mItem2, 1, 5, 800);
+//                    openAnima(mItem3, 2, 5, 800);
+//                    openAnima(mItem4, 3, 5, 800);
+//                    openAnima(mItem5, 4, 5, 800);
+//                }
+//            }
+//        });
         //Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);
         //view.startAnimation(animation);
 
-        findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                mValueAnimator = doAnima();
-//                startObject().start();
-//                playTogether();
-                setPropertyValuesHolder(mTv1);
-                setPropertyValuesHolder(mTv2);
-                setObjectProperty();
-            }
-        });
+//        findViewById(R.id.btn_start).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                mValueAnimator = doAnima();
+////                startObject().start();
+////                playTogether();
+//                setPropertyValuesHolder(mTv1);
+//                setPropertyValuesHolder(mTv2);
+//                setObjectProperty();
+//            }
+//        });
 
-        findViewById(R.id.btn_stop).setOnClickListener(new View.OnClickListener() {
+//        findViewById(R.id.btn_stop).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                mValueAnimator.cancel();
+//            }
+//        });
+//        excuteHttp();
+    }
+
+
+    private void excuteHttp() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.github.com/")
+                .build();
+
+        GithubService service = retrofit.create(GithubService.class);
+        Call<ResponseBody> call = service.listRepos("renwuxian");
+        call.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onClick(View v) {
-//                mValueAnimator.cancel();
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                System.out.print("success");
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+                System.out.print("failure");
             }
         });
     }
