@@ -152,4 +152,9 @@
         <!--app:layout_constraintRight_toRightOf="parent"-->
         <!--app:layout_constraintTop_toTopOf="parent"/>-->
 
+    <com.chinasoft.customercontrol.TouchView
+        android:id="@+id/view"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@android:color/holo_green_light"/>
 </android.support.constraint.ConstraintLayout>

@@ -36,7 +36,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
 //        mTv1 = findViewById(R.id.tv1);
 //        mTv2 = findViewById(R.id.tv2);
 //        mTv3 = findViewById(R.id.tv3);
