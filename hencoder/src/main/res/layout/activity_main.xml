@@ -8,8 +8,30 @@
     tools:context=".MainActivity">
 
     <com.example.hencoder.pr01.CameraView
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageview"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/view_anim_frame"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.example.hencoder.anim.LoadingImageView
+        android:id="@+id/view2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

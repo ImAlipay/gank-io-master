@@ -26,7 +26,7 @@ public class CameraView extends View {
         bitmap = Utils.getAvatar(600, getResources());
         camera = new Camera();
         camera.rotateX(45);
-        camera.setLocation(0,0,- 6 * Resources.getSystem().getDisplayMetrics().density);
+        camera.setLocation(0, 0, -6 * Resources.getSystem().getDisplayMetrics().density);
     }
 
     @Override
@@ -44,14 +44,14 @@ public class CameraView extends View {
 //        canvas.restore();
 
         //绘制上班部分
-//        canvas.save();
-//        canvas.translate(100+600/2,100+600/2);
-//        canvas.rotate(-20);
-//        canvas.clipRect(-600,-600,600,0);
-//        canvas.rotate(20);
-//        canvas.translate(-(100+600/2),-(100+600/2));
-//        canvas.drawBitmap(Utils.getAvatar(600,getResources()),100,100,paint);
-//        canvas.restore();
+        canvas.save();
+        canvas.translate(100+600/2,100+600/2);
+        canvas.rotate(-20);
+        canvas.clipRect(-600,-600,600,0);
+        canvas.rotate(20);
+        canvas.translate(-(100+600/2),-(100+600/2));
+        canvas.drawBitmap(Utils.getAvatar(600, getResources()), 100, 100, paint);
+        canvas.restore();
 
         //绘制下半部分
         canvas.save();
