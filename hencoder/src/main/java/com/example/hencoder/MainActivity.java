@@ -1,7 +1,10 @@
 package com.example.hencoder;
 
 import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +19,9 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+
+import com.example.hencoder.anim.FallingBallEvaluator;
+import com.example.hencoder.anim.FallingBallImageView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mView2 = findViewById(R.id.view2);
 
 //        animation();
-//        propertyAnimation();
+        propertyAnimation();
     }
 
     /**
@@ -117,8 +123,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        valueAnimator.start();
+//        valueAnimator.start();
 
+        //ObjectAnimator
+        ObjectAnimator alpha = ObjectAnimator.ofFloat(mView2, "translationX", 0, 270, -270, 0);
+        alpha.setDuration(5000);
+//        alpha.start();
+
+        ObjectAnimator animator = ObjectAnimator.ofObject(mView2, "fallingPos", new FallingBallEvaluator(), new Point(0, 0), new Point(500, 500));
+        animator.setDuration(5000);
+//        animator.start();
+        ObjectAnimator loadAnimator = (ObjectAnimator) AnimatorInflater.loadAnimator(this, R.animator.animator);
+        loadAnimator.setTarget(mView2);
+//        loadAnimator.start();
+
+        mView2.animate().x(50).y(50).setDuration(5000);
     }
 
 }
