@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         mView2 = findViewById(R.id.view2);
 
 //        animation();
-        propertyAnimation();
+//        propertyAnimation();
     }
 
     /**
