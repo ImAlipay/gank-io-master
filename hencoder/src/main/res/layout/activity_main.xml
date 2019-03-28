@@ -49,6 +49,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <com.example.hencoder.view.TabLayout
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -88,4 +89,8 @@
             android:layout_height="wrap_content"
             android:text="hello worldddd"/>
     </com.example.hencoder.view.TabLayout>
+
+    <com.example.hencoder.view.ScalableImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </FrameLayout>
