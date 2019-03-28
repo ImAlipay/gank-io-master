@@ -109,10 +109,12 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
 
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-        // TODO: 2019/3/28 ？？？？？
-        offsetX -= distanceX;
-        offsetY -= distanceY;
-        invalidate();
+        if (big) {
+            offsetX -= distanceX;
+            offsetY -= distanceY;
+//            fixOffsets();
+            invalidate();
+        }
         return false;
     }
 
@@ -123,6 +125,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+
         return false;
     }
 
@@ -146,5 +149,12 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
     @Override
     public boolean onDoubleTapEvent(MotionEvent e) {
         return false;
+    }
+
+    private void fixOffsets() {
+        offsetX = Math.min(offsetX, (mAvatar.getWidth() * mBigScale - getWidth()) / 2);
+        offsetX = Math.max(offsetX, -(mAvatar.getWidth() * mBigScale - getWidth()) / 2);
+        offsetY = Math.min(offsetX, (mAvatar.getHeight() * mBigScale - getHeight()) / 2);
+        offsetY = Math.max(offsetX, -(mAvatar.getHeight() * mBigScale - getHeight()) / 2);
     }
 }
