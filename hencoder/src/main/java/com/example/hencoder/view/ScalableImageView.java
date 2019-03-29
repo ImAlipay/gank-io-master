@@ -5,12 +5,15 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.os.Build;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.GestureDetectorCompat;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.OverScroller;
 
 import com.example.hencoder.Utils;
 
@@ -36,6 +39,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
     private ObjectAnimator mScaleAnimator;
     private float offsetX;
     private float offsetY;
+    private final OverScroller mScroller;
 
     public ScalableImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -43,6 +47,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mGestureDetectorCompat = new GestureDetectorCompat(context, this);
         mGestureDetectorCompat.setOnDoubleTapListener(this);
+        mScroller = new OverScroller(getContext());
     }
 
     @Override
@@ -51,7 +56,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
         originalOffsetX = (getWidth() - mAvatar.getWidth()) / 2f;
         originalOffsetY = (getHeight() - mAvatar.getHeight()) / 2f;
 
-        if ((float) getWidth() / mAvatar.getWidth() < (float) getHeight() / mAvatar.getHeight()) {
+        if ((float) getWidth() / getHeight() < (float) mAvatar.getWidth() / mAvatar.getHeight()) {
             mSmallScale = (float) getWidth() / mAvatar.getWidth();
             mBigScale = (float) getHeight() / mAvatar.getHeight() * OVER_SCALE_FRACTION;
         } else {
@@ -81,6 +86,8 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+//        float scaleFraction = (mCurrentScale - mSmallScale) / (mBigScale - mSmallScale);
+//        canvas.translate(offsetX * scaleFraction, offsetY * scaleFraction);
         canvas.translate(offsetX, offsetY);
         canvas.scale(mCurrentScale, mCurrentScale, getWidth() / 2, getHeight() / 2);
         canvas.drawBitmap(mAvatar, originalOffsetX, originalOffsetY, mPaint);
@@ -112,6 +119,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
         if (big) {
             offsetX -= distanceX;
             offsetY -= distanceY;
+
 //            fixOffsets();
             invalidate();
         }
@@ -123,9 +131,27 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-
+        if (big) {
+            mScroller.fling((int) offsetX, (int) offsetY, (int) velocityX, (int) velocityY,
+                    -(int) (mAvatar.getWidth() * mBigScale - getWidth()) / 2,
+                    (int) (mAvatar.getWidth() * mBigScale - getWidth()) / 2,
+                    -(int) (mAvatar.getHeight() * mBigScale - getHeight()) / 2,
+                    (int) (mAvatar.getHeight() * mBigScale - getHeight()) / 2);
+            postOnAnimation(new Runnable() {
+                @Override
+                public void run() {
+                    if (mScroller.computeScrollOffset()) {
+                        offsetX = mScroller.getCurrX();
+                        offsetY = mScroller.getCurrY();
+                        invalidate();
+                        postOnAnimation(this);
+                    }
+                }
+            });
+        }
         return false;
     }
 
