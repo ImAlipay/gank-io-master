@@ -9,9 +9,12 @@ import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.view.GestureDetectorCompat;
+import android.support.v4.view.ScaleGestureDetectorCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.OverScroller;
 
@@ -23,10 +26,11 @@ import com.example.hencoder.Utils;
  * @author 91660
  * @date 2019/3/28
  */
-public class ScalableImageView extends View implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
+public class ScalableImageView extends View implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener, ScaleGestureDetector.OnScaleGestureListener {
 
+    private static final String TAG = ScalableImageView.class.getSimpleName();
     private static final int IMAGE_WIDTH = (int) Utils.dp2px(300);
-    private static final float OVER_SCALE_FRACTION = 1.5f;
+    private static final float OVER_SCALE_FRACTION = 2f;
     private final Bitmap mAvatar;
     private final Paint mPaint;
     private float originalOffsetX;
@@ -40,6 +44,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
     private float offsetX;
     private float offsetY;
     private final OverScroller mScroller;
+    private final ScaleGestureDetector mScaleGestureDetector;
 
     public ScalableImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -48,6 +53,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
         mGestureDetectorCompat = new GestureDetectorCompat(context, this);
         mGestureDetectorCompat.setOnDoubleTapListener(this);
         mScroller = new OverScroller(getContext());
+        mScaleGestureDetector = new ScaleGestureDetector(getContext(), this);
     }
 
     @Override
@@ -85,10 +91,8 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
-//        float scaleFraction = (mCurrentScale - mSmallScale) / (mBigScale - mSmallScale);
-//        canvas.translate(offsetX * scaleFraction, offsetY * scaleFraction);
-        canvas.translate(offsetX, offsetY);
+        float scaleFraction = (mCurrentScale - mSmallScale) / (mBigScale - mSmallScale);
+        canvas.translate(offsetX * scaleFraction, offsetY * scaleFraction);
         canvas.scale(mCurrentScale, mCurrentScale, getWidth() / 2, getHeight() / 2);
         canvas.drawBitmap(mAvatar, originalOffsetX, originalOffsetY, mPaint);
     }
@@ -96,7 +100,11 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        return mGestureDetectorCompat.onTouchEvent(event);
+        boolean b = mScaleGestureDetector.onTouchEvent(event);
+        if (!mScaleGestureDetector.isInProgress()) {
+            b = mGestureDetectorCompat.onTouchEvent(event);
+        }
+        return b;
     }
 
     @Override
@@ -120,7 +128,7 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
             offsetX -= distanceX;
             offsetY -= distanceY;
 
-//            fixOffsets();
+            fixOffsets();
             invalidate();
         }
         return false;
@@ -164,6 +172,9 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
     public boolean onDoubleTap(MotionEvent e) {
         big = !big;
         if (big) {
+            offsetX = (e.getX() - getWidth() / 2f) - (e.getX() - getWidth() / 2f) * mBigScale / mSmallScale;
+            offsetY = (e.getY() - getHeight() / 2f) - (e.getY() - getHeight() / 2f) * mBigScale / mSmallScale;
+            fixOffsets();
             getScaleAnimator().start();
         } else {
             getScaleAnimator().reverse();
@@ -180,7 +191,26 @@ public class ScalableImageView extends View implements GestureDetector.OnGesture
     private void fixOffsets() {
         offsetX = Math.min(offsetX, (mAvatar.getWidth() * mBigScale - getWidth()) / 2);
         offsetX = Math.max(offsetX, -(mAvatar.getWidth() * mBigScale - getWidth()) / 2);
-        offsetY = Math.min(offsetX, (mAvatar.getHeight() * mBigScale - getHeight()) / 2);
-        offsetY = Math.max(offsetX, -(mAvatar.getHeight() * mBigScale - getHeight()) / 2);
+        offsetY = Math.min(offsetY, (mAvatar.getHeight() * mBigScale - getHeight()) / 2);
+        offsetY = Math.max(offsetY, -(mAvatar.getHeight() * mBigScale - getHeight()) / 2);
+    }
+
+    float initialScale;
+
+    @Override
+    public boolean onScale(ScaleGestureDetector detector) {
+        mCurrentScale = initialScale * detector.getScaleFactor();
+        return false;
+    }
+
+    @Override
+    public boolean onScaleBegin(ScaleGestureDetector detector) {
+        initialScale = mCurrentScale;
+        return true;
+    }
+
+    @Override
+    public void onScaleEnd(ScaleGestureDetector detector) {
+
     }
 }
