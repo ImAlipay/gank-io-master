@@ -85,4 +85,5 @@ public class MultiTouchView01 extends View {
     protected void onDraw(Canvas canvas) {
         canvas.drawBitmap(mAvatar, offsetX, offsetY, mPaint);
     }
+
 }
