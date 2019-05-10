@@ -28,6 +28,10 @@ public class MyClass {
         Integer pop = stack.pop();
         System.out.println(pop);
 
+        String s = "abcdef";
+        String p = "e";
+        int i = StringMatcher.ViolentMatch(s.toCharArray(), p.toCharArray());
+        System.out.println("位置："+i);
 
     }
 
