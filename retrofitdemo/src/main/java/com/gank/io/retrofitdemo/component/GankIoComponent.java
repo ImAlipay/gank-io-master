@@ -4,6 +4,7 @@ import com.gank.io.retrofitdemo.anno.PerActivity;
 import com.gank.io.retrofitdemo.module.ActivityModule;
 import com.gank.io.retrofitdemo.module.GankIoModule;
 import com.gank.io.retrofitdemo.module.TestModule;
+import com.gank.io.retrofitdemo.ui.activity.GankRecycleviewActivity;
 import com.gank.io.retrofitdemo.ui.activity.LaunchActivity;
 import com.gank.io.retrofitdemo.ui.activity.MainActivity;
 
@@ -20,4 +21,6 @@ public interface GankIoComponent {
     void inject(LaunchActivity activity);
 
     void inject(MainActivity activity);
+
+    void inject(GankRecycleviewActivity activity);
 }

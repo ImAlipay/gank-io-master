@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gank.io.retrofitdemo">
+    package="com.gank.io.retrofitdemo">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".base.DemoApplication"
@@ -16,28 +15,40 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".testRx.FlexBoxActivity">
-        </activity>
-        <activity
-            android:name=".testRx.RxjavaActivity"
-            android:label="@string/title_activity_rxjava"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
             android:name=".ui.activity.LaunchActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.gank.io.retrofitdemo.stickylistheaders.activity.ExpandableListTestActivity"/>
-        <activity android:name="com.gank.io.retrofitdemo.stickylistheaders.activity.TestActivity"/>
-        <activity android:name=".takephoto.SelectImageActivity"/>
-
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".testRx.FlexBoxActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".testRx.RxjavaActivity"
+            android:label="@string/title_activity_rxjava"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".stickylistheaders.activity.ExpandableListTestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".stickylistheaders.activity.TestActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".takephoto.SelectImageActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.TakePhotoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.activity.GankRecycleviewActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activity.OkhttpActivity"></activity>
     </application>
 
 </manifest>
