@@ -48,7 +48,10 @@
         <activity
             android:name=".ui.activity.GankRecycleviewActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.activity.OkhttpActivity"></activity>
+        <activity android:name=".ui.activity.OkhttpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.activity.RxJavaActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

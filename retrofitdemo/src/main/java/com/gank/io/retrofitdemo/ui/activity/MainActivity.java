@@ -38,7 +38,7 @@ import butterknife.OnClick;
  */
 public class MainActivity extends BaseAvtivity {
 
-    @OnClick({R.id.btn_take_photo, R.id.btn_gank_beauty,R.id.btn_okhttp})
+    @OnClick({R.id.btn_take_photo, R.id.btn_gank_beauty,R.id.btn_okhttp,R.id.btn_rxjava})
     public void click(View view) {
         switch (view.getId()) {
             case R.id.btn_take_photo:
@@ -49,6 +49,9 @@ public class MainActivity extends BaseAvtivity {
                 break;
                 case R.id.btn_okhttp:
                 startActivity(new Intent(this,OkhttpActivity.class));
+                break;
+            case R.id.btn_rxjava:
+                startActivity(new Intent(this,RxJavaActivity.class));
                 break;
             default:
         }
