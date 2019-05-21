@@ -6,6 +6,9 @@ public class Node<T> {
     //指向的下一个结点
     public Node next;
 
+    private String test;
+    public String publicTest;
+
     public Node(){}
 
     public Node(T data,Node next) {
@@ -19,5 +22,12 @@ public class Node<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+    public String getTest() {
+        return test;
     }
 }
