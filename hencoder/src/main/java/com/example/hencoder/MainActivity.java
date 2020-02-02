@@ -4,11 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorInflater;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.graphics.Point;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -22,12 +25,18 @@ import android.widget.ImageView;
 
 import com.example.hencoder.anim.FallingBallEvaluator;
 import com.example.hencoder.anim.FallingBallImageView;
+import com.example.hencoder.redpoint.RecycleviewAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
     private View mView;
     private ImageView mImageView;
     private View mView2;
+
+    private RecyclerView rv_view;
+    private RecycleviewAdapter mRecycleviewAdapter;
+    private Context mContext=this;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
 //        animation();
 //        propertyAnimation();
+
+        rv_view = findViewById(R.id.rv_view);
+        mRecycleviewAdapter = new RecycleviewAdapter(mContext);
+        rv_view.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false));
+        rv_view.setAdapter(mRecycleviewAdapter);
+
     }
 
     /**

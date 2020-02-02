@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,7 +14,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageview"
@@ -26,7 +25,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/view2"
@@ -37,7 +36,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.example.hencoder.view.MaterialEditTextView
         android:layout_width="match_parent"
@@ -46,7 +45,7 @@
         android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.example.hencoder.view.TabLayout
         android:layout_width="match_parent"
@@ -56,68 +55,78 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello world"/>
+            android:text="hello world" />
 
         <com.example.hencoder.view.OneMeasureView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello world"/>
+            android:text="hello world" />
 
         <com.example.hencoder.view.OneMeasureView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello world"/>
+            android:text="hello world" />
 
         <com.example.hencoder.view.OneMeasureView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello world"/>
+            android:text="hello world" />
 
         <com.example.hencoder.view.OneMeasureView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello world fgfsd"/>
+            android:text="hello world fgfsd" />
 
         <com.example.hencoder.view.OneMeasureView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello"/>
+            android:text="hello" />
 
 
         <com.example.hencoder.view.OneMeasureView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="hello worldddd"/>
+            android:text="hello worldddd" />
     </com.example.hencoder.view.TabLayout>
 
     <com.example.hencoder.view.ScalableImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <com.example.hencoder.view.MultiTouchView01
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <com.example.hencoder.view.MultiTouchView03
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"/>
+        android:visibility="gone" />
 
     <com.example.hencoder.view.TwoPager
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimary"/>
+            android:background="@color/colorPrimary" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorAccent"/>
+            android:background="@color/colorAccent" />
 
     </com.example.hencoder.view.TwoPager>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </FrameLayout>

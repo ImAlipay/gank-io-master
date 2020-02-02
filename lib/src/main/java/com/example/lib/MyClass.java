@@ -1,6 +1,9 @@
 package com.example.lib;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
@@ -57,5 +60,49 @@ public class MyClass {
         }
 
     }
+
+    private static void proxy() {
+
+    }
+
+    /**
+     * 动态代理
+     */
+    public class MyINvocationHandler implements InvocationHandler {
+
+        // 被代理的实例
+        Object obj = null;
+
+        public MyINvocationHandler(Object obj) {
+            this.obj = obj;
+        }
+
+        @Override
+        public Object invoke(Object o, Method method, Object[] objects) throws Throwable {
+            return method.invoke(this.obj, objects);
+        }
+    }
+
+    interface Subject {
+        public void doSomething(String str);
+    }
+
+    public class RealSubject implements Subject {
+
+        @Override
+        public void doSomething(String str) {
+            System.out.println("do something!------------>" + str);
+        }
+    }
+
+    public class DynamicProxy<T> {
+        public  <T> T newProxyInstance(ClassLoader loader,Class<?>[] interfaces,InvocationHandler h) {
+            if(true) {
+                // 执行前置通知
+            }
+            return (T)Proxy.newProxyInstance(loader,interfaces,h);
+        }
+    }
+
 
 }
